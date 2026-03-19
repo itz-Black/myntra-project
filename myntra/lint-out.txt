@@ -1,0 +1,45 @@
+
+> myntra@1.0.0 lint
+> expo lint
+
+> npx eslint .
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\app\(tabs)\bag.tsx
+  16:7  warning  'bagItems' is assigned a value but never used                                                                    @typescript-eslint/no-unused-vars
+  50:6  warning  React Hook useEffect has a missing dependency: 'fetchproduct'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\app\(tabs)\categories.tsx
+   4:3   warning  'Platform' is defined but never used            @typescript-eslint/no-unused-vars
+  13:10  warning  'Collapsible' is defined but never used         @typescript-eslint/no-unused-vars
+  14:10  warning  'ExternalLink' is defined but never used        @typescript-eslint/no-unused-vars
+  15:8   warning  'ParallaxScrollView' is defined but never used  @typescript-eslint/no-unused-vars
+  16:10  warning  'ThemedText' is defined but never used          @typescript-eslint/no-unused-vars
+  17:10  warning  'ThemedView' is defined but never used          @typescript-eslint/no-unused-vars
+  18:10  warning  'IconSymbol' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\app\(tabs)\wishlist.tsx
+  43:6  warning  React Hook useEffect has a missing dependency: 'fetchproduct'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\app\checkout.tsx
+  17:10  warning  'loading' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  17:19  warning  'setLoading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\app\orders.tsx
+   17:3  warning  'Clock' is defined but never used                                                                        @typescript-eslint/no-unused-vars
+   18:3  warning  'Calendar' is defined but never used                                                                     @typescript-eslint/no-unused-vars
+   25:7  warning  'orders' is assigned a value but never used                                                              @typescript-eslint/no-unused-vars
+  134:9  warning  'router' is assigned a value but never used                                                              @typescript-eslint/no-unused-vars
+  158:6  warning  React Hook useEffect has a missing dependency: 'user'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\app\product\[id].tsx
+  113:6  warning  React Hook useEffect has a missing dependency: 'id'. Either include it or remove the dependency array               react-hooks/exhaustive-deps
+  124:6  warning  React Hook useEffect has a missing dependency: 'startAutoScroll'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\components\HelloWave.tsx
+  21:6  warning  React Hook useEffect has a missing dependency: 'rotationAnimation'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\raghu\Desktop\VS Code\internship\myntra-clone-main\myntra-clone-main\myntra\components\ui\IconSymbol.tsx
+  6:39  warning  'ViewStyle' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 21 problems (0 errors, 21 warnings)
+
