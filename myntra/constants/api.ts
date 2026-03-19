@@ -5,5 +5,5 @@
  * - REMOTE_API → Deployed Render backend (products, bag, wishlist, orders)
  */
 
-export const LOCAL_API = "http://localhost:5000";
-export const REMOTE_API = "http://localhost:5001";
+export const LOCAL_API = "https://myntra-project-6nci.onrender.com";
+export const REMOTE_API = "https://myntra-project-6nci.onrender.com";
