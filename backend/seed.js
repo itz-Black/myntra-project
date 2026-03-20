@@ -1,14 +1,12 @@
 /**
- * seed.js - Seeds the local MongoDB with sample products
- * that include category, tags, and color fields for recommendation testing.
- *
- * Run: node seed.js   (from the backend/ directory)
+ * seed.js - Seeds the local MongoDB with sample products and categories.
  */
 
 const mongoose = require("mongoose");
 require("dotenv").config();
 
 const Product = require("./models/Product");
+const Category = require("./models/Category");
 
 const PRODUCTS = [
   {
@@ -200,23 +198,56 @@ const PRODUCTS = [
   },
 ];
 
+const CATEGORIES = [
+  {
+    name: "Men",
+    subcategory: ["T-Shirts", "Shirts", "Jeans", "Trousers", "Suits", "Activewear"],
+    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500&auto=format&fit=crop",
+  },
+  {
+    name: "Women",
+    subcategory: ["Dresses", "Tops", "Ethnic Wear", "Western Wear", "Activewear"],
+    image: "https://images.unsplash.com/photo-1618244972963-dbad0c4abf18?w=500&auto=format&fit=crop",
+  },
+  {
+    name: "Kids",
+    subcategory: ["Boys Clothing", "Girls Clothing", "Infants", "Toys", "School Essentials"],
+    image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop",
+  },
+  {
+    name: "Beauty",
+    subcategory: ["Makeup", "Skincare", "Haircare", "Fragrances", "Personal Care"],
+    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&auto=format&fit=crop",
+  },
+];
+
 async function seed() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ Connected to MongoDB");
 
-    // Clear existing products
+    // Clear existing data
     await Product.deleteMany({});
-    console.log("🗑️  Cleared existing products");
+    await Category.deleteMany({});
+    console.log("🗑️  Cleared existing products and categories");
 
     // Insert new products
-    const inserted = await Product.insertMany(PRODUCTS);
-    console.log(`✅ Seeded ${inserted.length} products with category/tags/color`);
+    const insertedProducts = await Product.insertMany(PRODUCTS);
+    console.log(`✅ Seeded ${insertedProducts.length} products`);
 
-    // Print first 3 IDs for reference
-    inserted.slice(0, 3).forEach((p) =>
-      console.log(`   - ${p._id}  →  ${p.name}`)
-    );
+    // Link products to categories (simple example: first product matching category name)
+    const categoriesWithProducts = CATEGORIES.map((cat) => {
+      const match = insertedProducts.find((p) => p.category.includes(cat.name) || cat.subcategory.includes(p.category));
+      return {
+        ...cat,
+        productId: match ? match._id : null
+      };
+    });
+
+    // Insert new categories
+    const insertedCategories = await Category.insertMany(categoriesWithProducts);
+    console.log(`✅ Seeded ${insertedCategories.length} categories`);
+
   } catch (err) {
     console.error("❌ Seed error:", err.message);
   } finally {
