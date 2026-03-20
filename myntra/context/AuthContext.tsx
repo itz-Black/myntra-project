@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       if (!email && !password) {
         // Mock Login User Bypass
-        const mockData = { _id: "default_tester", fullName: "Guest User", name: "Guest User", email: "guest@example.com" };
+        const mockData = { _id: "64a1b2c3d4e5f60718293a4b", fullName: "Guest User", name: "Guest User", email: "guest@example.com" };
         await saveUserData(mockData._id, mockData.fullName, mockData.email);
         setUser({ _id: mockData._id, name: mockData.name, email: mockData.email });
         setIsAuthenticated(true);
@@ -72,8 +72,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error(data.message || "Login failed");
       }
     } catch (error) {
-       console.log("Login HTTP error: fallback to mock user for demonstration.");
-       const mockData = { _id: "default_tester", fullName: "Guest Tester", name: "Guest Tester", email: "guest@example.com" };
+      console.log("Login HTTP error: fallback to mock user for demonstration.");
+       const mockData = { _id: "64a1b2c3d4e5f60718293a4b", fullName: "Guest Tester", name: "Guest Tester", email: "guest@example.com" };
        await saveUserData(mockData._id, mockData.fullName, mockData.email);
        setUser({ _id: mockData._id, name: mockData.name, email: mockData.email });
        setIsAuthenticated(true);

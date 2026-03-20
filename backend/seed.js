@@ -80,7 +80,7 @@ const CATEGORIES = [
   {
     name: "Women",
     subcategory: ["Dresses", "Tops", "Ethnic Wear"],
-    image: "https://images.unsplash.com/photo-1618244972963-dbad0c4abf18?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&auto=format&fit=crop",
   },
   {
     name: "Kids",
@@ -113,7 +113,7 @@ async function seed() {
         
       return {
         ...cat,
-        productId: pId // This is now correctly an array of ObjectIds
+        productId: pId
       };
     });
 
