@@ -1,5 +1,5 @@
 /**
- * seed.js - Seeds the local MongoDB with sample products and categories.
+ * seed.js - Seeds the local MongoDB with products and categories.
  */
 
 const mongoose = require("mongoose");
@@ -14,209 +14,82 @@ const PRODUCTS = [
     brand: "Roadster",
     price: 499,
     discount: "60% OFF",
-    description: "Classic white t-shirt made from premium cotton. Perfect for everyday wear.",
+    description: "Classic white t-shirt made from premium cotton.",
     sizes: ["S", "M", "L", "XL"],
-    images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&auto=format&fit=crop",
-    ],
-    category: "T-Shirts",
-    tags: ["casual", "cotton", "summer", "white"],
+    images: ["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&auto=format&fit=crop"],
+    category: "Men",
+    tags: ["casual", "white"],
     color: "white",
-  },
-  {
-    name: "Classic Striped T-Shirt",
-    brand: "H&M",
-    price: 399,
-    discount: "50% OFF",
-    description: "Comfortable striped tee for everyday casual wear.",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    images: [
-      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&auto=format&fit=crop",
-    ],
-    category: "T-Shirts",
-    tags: ["casual", "striped", "cotton"],
-    color: "blue",
-  },
-  {
-    name: "Graphic Print T-Shirt",
-    brand: "Bewakoof",
-    price: 349,
-    discount: "40% OFF",
-    description: "Fun graphic print tee — wear your personality.",
-    sizes: ["S", "M", "L"],
-    images: [
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&auto=format&fit=crop",
-    ],
-    category: "T-Shirts",
-    tags: ["graphic", "casual", "printed"],
-    color: "black",
-  },
-  {
-    name: "Oversized Drop-Shoulder Tee",
-    brand: "Campus Sutra",
-    price: 699,
-    discount: "35% OFF",
-    description: "Trendy oversized drop-shoulder t-shirt for a relaxed look.",
-    sizes: ["S", "M", "L", "XL"],
-    images: [
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500&auto=format&fit=crop",
-    ],
-    category: "T-Shirts",
-    tags: ["oversized", "cotton", "casual", "trendy"],
-    color: "grey",
-  },
-  {
-    name: "Cotton Polo T-Shirt",
-    brand: "U.S. Polo Assn.",
-    price: 899,
-    discount: "30% OFF",
-    description: "Classic polo collar t-shirt, perfect for semi-formal occasions.",
-    sizes: ["S", "M", "L", "XL"],
-    images: [
-      "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500&auto=format&fit=crop",
-    ],
-    category: "T-Shirts",
-    tags: ["polo", "cotton", "formal", "premium"],
-    color: "navy",
   },
   {
     name: "Denim Jacket",
     brand: "Levis",
     price: 2499,
     discount: "40% OFF",
-    description: "Classic denim jacket with a modern twist. Features premium quality denim and comfortable fit.",
-    sizes: ["S", "M", "L", "XL"],
-    images: [
-      "https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=500&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&auto=format&fit=crop",
-    ],
-    category: "Jackets",
-    tags: ["denim", "jacket", "casual", "blue"],
-    color: "blue",
-  },
-  {
-    name: "Leather Biker Jacket",
-    brand: "Roadster",
-    price: 3999,
-    discount: "25% OFF",
-    description: "Premium faux leather biker jacket for a bold statement.",
+    description: "Classic denim jacket for men.",
     sizes: ["S", "M", "L"],
-    images: [
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&auto=format&fit=crop",
-    ],
-    category: "Jackets",
-    tags: ["leather", "biker", "bold", "black"],
-    color: "black",
+    images: ["https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=500&auto=format&fit=crop"],
+    category: "Men",
+    tags: ["denim", "jacket"],
+    color: "blue",
   },
   {
     name: "Summer Floral Dress",
     brand: "ONLY",
     price: 1299,
     discount: "50% OFF",
-    description: "Flowy summer dress perfect for warm weather. Made from lightweight fabric.",
-    sizes: ["XS", "S", "M", "L"],
-    images: [
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1623609163859-ca93c959b98a?w=500&auto=format&fit=crop",
-    ],
-    category: "Dresses",
-    tags: ["floral", "summer", "light", "casual"],
+    description: "Flowy summer dress for women.",
+    sizes: ["S", "M"],
+    images: ["https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500&auto=format&fit=crop"],
+    category: "Women",
+    tags: ["floral", "dress"],
     color: "multicolor",
   },
   {
-    name: "Bodycon Wrap Dress",
-    brand: "Forever 21",
-    price: 999,
-    discount: "45% OFF",
-    description: "Flattering wrap-style bodycon dress for evenings out.",
-    sizes: ["XS", "S", "M", "L"],
-    images: [
-      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500&auto=format&fit=crop",
-    ],
-    category: "Dresses",
-    tags: ["bodycon", "evening", "wrap", "chic"],
-    color: "red",
-  },
-  {
-    name: "Classic Sneakers",
+    name: "Kids Sneakers",
     brand: "Nike",
     price: 3499,
     discount: "30% OFF",
-    description: "Versatile sneakers that combine style and comfort.",
-    sizes: ["UK6", "UK7", "UK8", "UK9", "UK10"],
-    images: [
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=500&auto=format&fit=crop",
-    ],
-    category: "Footwear",
-    tags: ["sneakers", "casual", "sports", "white"],
+    description: "Comfortable sneakers for kids.",
+    sizes: ["UK6", "UK7"],
+    images: ["https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format&fit=crop"],
+    category: "Kids",
+    tags: ["sneakers", "kids"],
     color: "white",
   },
   {
-    name: "Running Shoes",
-    brand: "Adidas",
-    price: 4999,
-    discount: "20% OFF",
-    description: "High-performance running shoes with Boost cushioning.",
-    sizes: ["UK6", "UK7", "UK8", "UK9", "UK10", "UK11"],
-    images: [
-      "https://images.unsplash.com/photo-1556906781-9a412961d28f?w=500&auto=format&fit=crop",
-    ],
-    category: "Footwear",
-    tags: ["running", "sports", "performance", "mesh"],
-    color: "black",
-  },
-  {
-    name: "Slim Fit Chinos",
-    brand: "Arrow",
-    price: 1799,
-    discount: "35% OFF",
-    description: "Versatile chinos that pair well with everything.",
-    sizes: ["28", "30", "32", "34", "36"],
-    images: [
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=500&auto=format&fit=crop",
-    ],
-    category: "Trousers",
-    tags: ["chinos", "slim-fit", "formal", "beige"],
-    color: "beige",
-  },
-  {
-    name: "Ripped Skinny Jeans",
-    brand: "Levis",
-    price: 2299,
-    discount: "30% OFF",
-    description: "Trendy ripped skinny jeans for a street-style look.",
-    sizes: ["28", "30", "32", "34"],
-    images: [
-      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500&auto=format&fit=crop",
-    ],
-    category: "Jeans",
-    tags: ["ripped", "skinny", "denim", "trendy"],
-    color: "blue",
-  },
+    name: "Face Serum",
+    brand: "Ordinary",
+    price: 899,
+    discount: "10% OFF",
+    description: "Effective skin serum.",
+    sizes: ["30ml"],
+    images: ["https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&auto=format&fit=crop"],
+    category: "Beauty",
+    tags: ["skincare", "serum"],
+    color: "clear",
+  }
 ];
 
 const CATEGORIES = [
   {
     name: "Men",
-    subcategory: ["T-Shirts", "Shirts", "Jeans", "Trousers", "Suits", "Activewear"],
+    subcategory: ["T-Shirts", "Shirts", "Jeans", "Jackets"],
     image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500&auto=format&fit=crop",
   },
   {
     name: "Women",
-    subcategory: ["Dresses", "Tops", "Ethnic Wear", "Western Wear", "Activewear"],
+    subcategory: ["Dresses", "Tops", "Ethnic Wear"],
     image: "https://images.unsplash.com/photo-1618244972963-dbad0c4abf18?w=500&auto=format&fit=crop",
   },
   {
     name: "Kids",
-    subcategory: ["Boys Clothing", "Girls Clothing", "Infants", "Toys", "School Essentials"],
+    subcategory: ["Boys Clothing", "Girls Clothing"],
     image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500&auto=format&fit=crop",
   },
   {
     name: "Beauty",
-    subcategory: ["Makeup", "Skincare", "Haircare", "Fragrances", "Personal Care"],
+    subcategory: ["Makeup", "Skincare"],
     image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500&auto=format&fit=crop",
   },
 ];
@@ -226,33 +99,32 @@ async function seed() {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ Connected to MongoDB");
 
-    // Clear existing data
     await Product.deleteMany({});
     await Category.deleteMany({});
-    console.log("🗑️  Cleared existing products and categories");
+    console.log("🗑️  Cleared database");
 
-    // Insert new products
     const insertedProducts = await Product.insertMany(PRODUCTS);
     console.log(`✅ Seeded ${insertedProducts.length} products`);
 
-    // Link products to categories (simple example: first product matching category name)
     const categoriesWithProducts = CATEGORIES.map((cat) => {
-      const match = insertedProducts.find((p) => p.category.includes(cat.name) || cat.subcategory.includes(p.category));
+      const pId = insertedProducts
+        .filter((p) => p.category === cat.name)
+        .map((p) => p._id);
+        
       return {
         ...cat,
-        productId: match ? match._id : null
+        productId: pId // This is now correctly an array of ObjectIds
       };
     });
 
-    // Insert new categories
-    const insertedCategories = await Category.insertMany(categoriesWithProducts);
-    console.log(`✅ Seeded ${insertedCategories.length} categories`);
+    await Category.insertMany(categoriesWithProducts);
+    console.log(`✅ Seeded ${CATEGORIES.length} categories`);
 
   } catch (err) {
     console.error("❌ Seed error:", err.message);
   } finally {
     await mongoose.disconnect();
-    console.log("Disconnected from MongoDB.");
+    console.log("Disconnected.");
   }
 }
 
