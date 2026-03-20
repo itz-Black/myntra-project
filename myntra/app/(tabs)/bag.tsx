@@ -71,8 +71,8 @@ export default function Bag() {
       </View>
     );
   }
-  const activeItems = bag?.filter((item: any) => !item.isSaved) || [];
-  const savedItems = bag?.filter((item: any) => item.isSaved) || [];
+  const activeItems = bag?.filter((item: any) => !item.isSaved && item.productId) || [];
+  const savedItems = bag?.filter((item: any) => item.isSaved && item.productId) || [];
 
   const total = activeItems.reduce(
     (sum: any, item: any) => sum + item.productId.price * item.quantity,

@@ -105,7 +105,7 @@ export default function Wishlist() {
       </View>
 
       <ScrollView style={styles.content}>
-        {wishlist?.map((item:any) => (
+        {wishlist?.filter((item: any) => item.productId).map((item:any) => (
           <View key={item._id} style={[styles.wishlistItem, { backgroundColor: theme.card, boxShadow: theme.shadow }]}>
             <Image  source={{ uri: item.productId.images[0] }} style={styles.itemImage} />
             <View style={styles.itemInfo}>
