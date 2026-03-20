@@ -50,7 +50,12 @@ router.post("/create/:userId", async (req, res) => {
     if (bag.length === 0) {
       return res.status(400).json({ message: "No item in the bag" });
     }
-    const orderitem = bag.map((item) => ({
+    // Filter out items where the product may have been deleted
+    const validBagItems = bag.filter((item) => item.productId);
+    if (validBagItems.length === 0) {
+      return res.status(400).json({ message: "No valid items in the bag" });
+    }
+    const orderitem = validBagItems.map((item) => ({
       productId: item.productId._id,
       size: item.size,
       price: item.productId.price,
@@ -84,7 +89,7 @@ router.post("/create/:userId", async (req, res) => {
       await sendPushNotification([user.pushToken], message);
     }
 
-    res.status(200).json({ message: "Order placed successfully" });
+    res.status(200).json({ message: "Order placed successfully", order: newOrder });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Something went wrong" });
